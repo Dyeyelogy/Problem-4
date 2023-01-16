@@ -5,6 +5,8 @@ while True:
     TOTALLEC = int(input("Enter total number of lecture units enrolled: "))
     TOTALLAB = int(input("Enter total number of laboratory units enrolled: "))
 
+    TOTALUNITS = TOTALLEC + TOTALLAB
+
     if KORSCODE.upper() == "A":
         KORSNAME = "Engineering"
     elif KORSCODE.upper() == "B":
@@ -33,7 +35,6 @@ while True:
     LECFEE = TOTALLEC * LECRATE
     LABFEE = TOTALLAB * LABRATE
     TUITION = LECFEE + LABFEE
-    TOTALUNITS = TOTALLEC + TOTALLAB
 
     if TOTALUNITS >= 1 and TOTALUNITS <= 8:
         DOWN = 800.00
