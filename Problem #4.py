@@ -1,56 +1,54 @@
 while True:
-    student_name = input("\nEnter Student Name: ")
-    course_code = input("Enter Course Code (A = Engineering, B = Business Administration, C = Secretarial, D = Architecture): ")
-    year_code = int(input("Enter Year Code: "))
-    total_lecture_units = int(input("Enter Total Numbers of Lectured Units Enrolled: "))
-    total_lab_units = int(input("Enter Total Numbers of Laboratory Units Enrolled: "))
+    STUDNAME = input("Enter student name: ")
+    KORSCODE = input("Enter course code: ")
+    YERCODE = int(input("Enter year code: "))
+    TOTALLEC = int(input("Enter total number of lecture units enrolled: "))
+    TOTALLAB = int(input("Enter total number of laboratory units enrolled: "))
 
-    total_units = total_lecture_units + total_lab_units
+    if KORSCODE.upper() == "A":
+        KORSNAME = "Engineering"
+    elif KORSCODE.upper() == "B":
+        KORSNAME = "Business Administration"
+    elif KORSCODE.upper() == "C":
+        KORSNAME = "Secretarial"
+    elif KORSCODE.upper() == "D":
+        KORSNAME = "Architecture"
+    
+    if YERCODE == 1:
+        LECRATE = 345.75
+        LABRATE = 420.45
+    elif YERCODE == 2:
+        LECRATE = 320.45
+        LABRATE = 400.50
+    elif YERCODE == 3:
+        LECRATE = 298.75
+        LABRATE = 389.75
+    elif YERCODE == 4:
+        LECRATE = 275.85
+        LABRATE = 360.65
+    elif YERCODE == 5:
+        LECRATE = 275.85
+        LABRATE = 360.65
 
-    if course_code.upper() == "A":
-        course_name = "Engineering"
-    elif course_code.upper() == "B":
-        course_name = "Business Administration"
-    elif course_code.upper() == "C":
-        course_name = "Secretarial"
-    elif course_code.upper() == "D":
-        course_name = "Architecture"
+    LECFEE = TOTALLEC * LECRATE
+    LABFEE = TOTALLAB * LABRATE
+    TUITION = LECFEE + LABFEE
+    TOTALUNITS = TOTALLEC + TOTALLAB
 
-    if year_code == 1:
-        lecture_rate = 345.75
-        lab_rate = 420.45
-    elif year_code == 2:
-        lecture_rate = 320.45
-        lab_rate = 400.50
-    elif year_code == 3:
-        lecture_rate = 298.75
-        lab_rate = 389.75
-    elif year_code == 4:
-        lecture_rate = 275.85
-        lab_rate = 360.65
-    elif year_code == 5:
-        lecture_rate = 275.85
-        lab_rate = 360.65
+    if TOTALUNITS >= 1 and TOTALUNITS <= 8:
+        DOWN = 800.00
+    elif TOTALUNITS >= 9 and TOTALUNITS <= 14:
+        DOWN = 1000.00
+    elif TOTALUNITS >= 15 and TOTALUNITS <= 18:
+        DOWN = 1500.00
+    elif TOTALUNITS >= 19:
+        DOWN = 1800.00
+    BALANSE = TUITION - DOWN
 
-    lecture_fee = total_lecture_units * lecture_rate
-    lab_fee = total_lab_units * lab_rate
-    tuition_fee = lecture_fee + lab_fee
-
-    if 1 <= total_units <= 8:
-        down_payment = 800.00
-    elif 9 <= total_units <= 14:
-        down_payment = 1000.00
-    elif 15 <= total_units <= 18:
-        down_payment = 1500.00
-    elif total_units >= 19:
-        down_payment = 1800.00
-
-    balance = tuition_fee - down_payment
-
-    print("\nStudent Name: ", student_name)
-    print("Course Name: ", course_name)
-    print("Tuition Fee: ", tuition_fee)
-    print("Balance: ", balance)
+    print("Student Name: ", STUDNAME)
+    print("Course Name: ", KORSNAME)
+    print("Tuition Fee: ", TUITION)
+    print("Balance: ", BALANSE)
 
     repeat = input("\nDo you want to repeat the transaction? (yes/no): ")
     if repeat.lower() == "no":
